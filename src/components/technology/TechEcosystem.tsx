@@ -317,8 +317,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 export const ORBIT_CONFIGS: OrbitConfig[] = [
   {
     id: 'frontend',
-    a: 495,
-    b: 270,
+    a: 480,
+    b: 250,
     tilt: -11.0,
     phi0: 282.5,
     amp: 0.08,
@@ -328,19 +328,19 @@ export const ORBIT_CONFIGS: OrbitConfig[] = [
   },
   {
     id: 'languages',
-    a: 465,
-    b: 260,
+    a: 450,
+    b: 240,
     tilt: -12.5,
     phi0: 214.0,
     amp: 0.09,
     pOff: 1.2,
     floatSpeed: 0.38,
-    floatDist: 5,
+    floatDist: 4,
   },
   {
     id: 'backend',
-    a: 535,
-    b: 285,
+    a: 510,
+    b: 260,
     tilt: -10.5,
     phi0: 6.0,
     amp: 0.07,
@@ -350,19 +350,19 @@ export const ORBIT_CONFIGS: OrbitConfig[] = [
   },
   {
     id: 'ai',
-    a: 470,
-    b: 265,
+    a: 460,
+    b: 245,
     tilt: -12.0,
     phi0: 142.0,
     amp: 0.08,
     pOff: 3.6,
     floatSpeed: 0.35,
-    floatDist: 5,
+    floatDist: 4,
   },
   {
     id: 'tools',
-    a: 520,
-    b: 280,
+    a: 500,
+    b: 255,
     tilt: -11.5,
     phi0: 68.0,
     amp: 0.07,
@@ -374,29 +374,24 @@ export const ORBIT_CONFIGS: OrbitConfig[] = [
 
 // Luminous rose-gold orbital beads matching the master design
 const ORBITAL_BEADS = [
-  { x: 45.2, y: 20.8, size: 14 },
-  { x: 23.5, y: 62.5, size: 14 },
-  { x: 33.2, y: 53.6, size: 10 },
-  { x: 46.2, y: 80.2, size: 11 },
-  { x: 57.5, y: 78.5, size: 15 },
-  { x: 68.0, y: 53.2, size: 9 },
-  { x: 89.2, y: 60.5, size: 12 },
-  { x: 74.0, y: 28.0, size: 9 },
+  { x: 45.2, y: 22.0, size: 14 },
+  { x: 23.5, y: 60.5, size: 14 },
+  { x: 33.2, y: 52.0, size: 10 },
+  { x: 46.2, y: 77.0, size: 11 },
+  { x: 57.5, y: 75.5, size: 15 },
+  { x: 68.0, y: 52.0, size: 9 },
+  { x: 89.2, y: 58.5, size: 12 },
+  { x: 74.0, y: 27.0, size: 9 },
 ];
 
-// Atmospheric rose petals with varied sizes, positions, and blurs
-const BACKGROUND_PETALS = [
-  { left: '-2%', top: '65%', width: '130px', height: '90px', rotate: 45, blur: '4px', opacity: 0.65 },
-  { left: '4%', top: '48%', width: '100px', height: '70px', rotate: -25, blur: '3px', opacity: 0.55 },
-  { left: '92%', top: '68%', width: '150px', height: '110px', rotate: -35, blur: '5px', opacity: 0.7 },
-  { left: '86%', top: '22%', width: '90px', height: '65px', rotate: 20, blur: '3px', opacity: 0.45 },
-  { left: '16%', top: '26%', width: '55px', height: '40px', rotate: 15, blur: '0px', opacity: 0.75 },
-  { left: '38%', top: '8%', width: '60px', height: '44px', rotate: -50, blur: '0.5px', opacity: 0.7 },
-  { left: '71%', top: '16%', width: '65px', height: '48px', rotate: 30, blur: '0.5px', opacity: 0.8 },
-  { left: '30%', top: '53%', width: '45px', height: '32px', rotate: 40, blur: '0px', opacity: 0.65 },
-  { left: '68%', top: '34%', width: '48px', height: '35px', rotate: -15, blur: '0px', opacity: 0.7 },
-  { left: '36%', top: '88%', width: '58px', height: '42px', rotate: 25, blur: '1px', opacity: 0.7 },
-  { left: '55%', top: '89%', width: '50px', height: '36px', rotate: -20, blur: '0.5px', opacity: 0.65 },
+// Subtle, realistic individual crimson rose petals (transparent organic PNG assets)
+const REALISTIC_PETALS = [
+  { src: '/assets/botanical/petals/petal_1.png', left: '7%', top: '22%', width: 34, rotate: 25, duration: 14, delay: 0, opacity: 0.45 },
+  { src: '/assets/botanical/petals/petal_2.png', left: '91%', top: '28%', width: 38, rotate: -35, duration: 16, delay: 2.5, opacity: 0.4 },
+  { src: '/assets/botanical/petals/petal_3.png', left: '12%', top: '75%', width: 32, rotate: 40, duration: 13, delay: 1.2, opacity: 0.42 },
+  { src: '/assets/botanical/petals/petal_1.png', left: '88%', top: '72%', width: 36, rotate: -20, duration: 15, delay: 3.8, opacity: 0.38 },
+  { src: '/assets/botanical/petals/petal_2.png', left: '22%', top: '15%', width: 28, rotate: 15, duration: 12, delay: 4.5, opacity: 0.35 },
+  { src: '/assets/botanical/petals/petal_3.png', left: '78%', top: '85%', width: 30, rotate: 55, duration: 17, delay: 5.2, opacity: 0.36 },
 ];
 
 // ─────────────────────────────────────────────
@@ -684,9 +679,6 @@ export const TechEcosystem: React.FC = () => {
   const [activeTech, setActiveTech] = useState<TechItem | null>(null);
   const [activeMobileIndex, setActiveMobileIndex] = useState(0);
 
-  // Parallax tracking
-  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
-
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== 'undefined' ? window.innerWidth < 768 : false
   );
@@ -719,7 +711,7 @@ export const TechEcosystem: React.FC = () => {
 
     const T0 = 46.0; // Base orbital period for a full 360° revolution
     const Cx = 800;
-    const Cy = 460;
+    const Cy = 445;
 
     // IntersectionObserver to pause the loop when the section is offscreen
     const observer = new IntersectionObserver(
@@ -783,9 +775,9 @@ export const TechEcosystem: React.FC = () => {
         // 4. Subtle secondary organic float drift
         const microFloat = Math.sin(t * cfg.floatSpeed * 2.0 * Math.PI) * cfg.floatDist;
 
-        // Percentages within the 1600x900 coordinate container
+        // Percentages within the 1600x920 coordinate container
         const pctX = (x / 1600) * 100;
-        const pctY = ((y + microFloat) / 900) * 100;
+        const pctY = ((y + microFloat) / 920) * 100;
 
         // 5. 3D Depth Calculation:
         // In screen coordinates, v > 0 is bottom (foreground), v < 0 is top (background)
@@ -824,19 +816,6 @@ export const TechEcosystem: React.FC = () => {
       observer.disconnect();
     };
   }, [isReducedMotion, isMobile]);
-
-  // Subtle Mouse Parallax Handler
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    if (isMobile || isReducedMotion) return;
-    const rect = sectionRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const normX = (e.clientX - rect.left) / rect.width - 0.5;
-    const normY = (e.clientY - rect.top) / rect.height - 0.5;
-    setMouseOffset({
-      x: normX * 12,
-      y: normY * 8,
-    });
-  };
 
   const handleTechClick = useCallback((tech: TechItem) => {
     setActiveTech(tech);
@@ -883,12 +862,11 @@ export const TechEcosystem: React.FC = () => {
       <section
         ref={sectionRef}
         id="skills"
-        onMouseMove={handleMouseMove}
-        className="w-full relative min-h-screen bg-[#0E0205] text-[#F4E2D8] select-none"
+        className="w-full relative min-h-screen bg-[#0E0205] text-[#F4E2D8] select-none pt-20 sm:pt-24 lg:pt-28 pb-32 sm:pb-40 lg:pb-48"
         aria-label="Skills — Technologies I Work With"
       >
-        {/* Viewport Stage (Pinned seamlessly while scrubbing through the bloom track) */}
-        <div className="relative w-full h-screen overflow-hidden flex flex-col justify-between pt-16 sm:pt-20 pb-6 sm:pb-8 selection:bg-[#6B1A24] selection:text-[#F4E2D8]">
+        {/* Viewport Stage */}
+        <div className="relative w-full flex flex-col justify-start selection:bg-[#6B1A24] selection:text-[#F4E2D8]">
           {/* Deep Burgundy Vignette Background */}
           <div
             className="absolute inset-0 pointer-events-none z-0"
@@ -925,32 +903,25 @@ export const TechEcosystem: React.FC = () => {
             </div>
           </div>
 
-          {/* ── DRIFTING ATMOSPHERIC ROSE PETALS (Bokeh Depth of Field) ─ */}
+          {/* ── DRIFTING REALISTIC BOTANICAL ROSE PETALS ───────────────── */}
           <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden" aria-hidden="true">
-            {BACKGROUND_PETALS.map((petal, idx) => (
-              <div
+            {REALISTIC_PETALS.map((petal, idx) => (
+              <img
                 key={`petal-${idx}`}
-                className="absolute"
+                src={petal.src}
+                alt=""
+                className="absolute pointer-events-none select-none"
                 style={{
                   left: petal.left,
                   top: petal.top,
-                  width: petal.width,
-                  height: petal.height,
+                  width: `${petal.width}px`,
+                  height: 'auto',
                   transform: `rotate(${petal.rotate}deg)`,
-                  filter: `blur(${petal.blur}) drop-shadow(0 8px 18px rgba(0,0,0,0.8))`,
                   opacity: petal.opacity,
-                  animation: `petalDriftSlow ${7 + (idx % 4)}s ease-in-out infinite ${idx * 0.9}s`,
+                  filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.75))',
+                  animation: `petalDriftSlow ${petal.duration}s ease-in-out infinite ${petal.delay}s`,
                 }}
-              >
-                <div
-                  className="w-full h-full rounded-[60%_40%_50%_45%_/_45%_55%_40%_50%]"
-                  style={{
-                    background:
-                      'radial-gradient(ellipse at 30% 30%, #D8344E 0%, #8C1628 45%, #4A0813 85%, #2B040A 100%)',
-                    boxShadow: 'inset 0 1px 3px rgba(255,200,210,0.4)',
-                  }}
-                />
-              </div>
+              />
             ))}
           </div>
 
@@ -968,13 +939,13 @@ export const TechEcosystem: React.FC = () => {
           {!isMobile && (
             <div
               ref={stageRef}
-              className="relative w-full max-w-[1440px] aspect-[1600/900] mx-auto px-4 my-auto flex items-center justify-center relative z-20 select-none"
+              className="relative w-full max-w-[1440px] aspect-[1600/920] mx-auto px-4 my-auto flex items-center justify-center relative z-20 select-none"
             >
               <div className="relative w-full h-full">
                 {/* 1. SVG ORBITAL PATHS & LUMINOUS METALLIC BEADS */}
                 <svg
                   className="absolute inset-0 w-full h-full pointer-events-none z-0"
-                  viewBox="0 0 1600 900"
+                  viewBox="0 0 1600 920"
                   style={{ overflow: 'visible' }}
                 >
                   <defs>
@@ -1005,10 +976,10 @@ export const TechEcosystem: React.FC = () => {
                   {/* Outer Elliptical Orbital Path (tilted -12 deg) */}
                   <ellipse
                     cx="800"
-                    cy="460"
-                    rx="580"
-                    ry="320"
-                    transform="rotate(-12 800 460)"
+                    cy="445"
+                    rx="560"
+                    ry="295"
+                    transform="rotate(-12 800 445)"
                     fill="none"
                     stroke={`url(#${orbitGrad1})`}
                     strokeWidth="1.2"
@@ -1017,10 +988,10 @@ export const TechEcosystem: React.FC = () => {
                   {/* Mid Elliptical Orbital Path (tilted -11 deg) */}
                   <ellipse
                     cx="800"
-                    cy="460"
-                    rx="505"
-                    ry="280"
-                    transform="rotate(-11 800 460)"
+                    cy="445"
+                    rx="490"
+                    ry="260"
+                    transform="rotate(-11 800 445)"
                     fill="none"
                     stroke={`url(#${orbitGrad3})`}
                     strokeWidth="1.0"
@@ -1031,10 +1002,10 @@ export const TechEcosystem: React.FC = () => {
                   {/* Inner Elliptical Orbital Path (tilted -13 deg) */}
                   <ellipse
                     cx="800"
-                    cy="460"
-                    rx="435"
-                    ry="240"
-                    transform="rotate(-13 800 460)"
+                    cy="445"
+                    rx="425"
+                    ry="225"
+                    transform="rotate(-13 800 445)"
                     fill="none"
                     stroke={`url(#${orbitGrad2})`}
                     strokeWidth="1.0"
@@ -1043,10 +1014,10 @@ export const TechEcosystem: React.FC = () => {
                   {/* Secondary Counter Ellipse */}
                   <ellipse
                     cx="800"
-                    cy="460"
-                    rx="660"
-                    ry="370"
-                    transform="rotate(8 800 460)"
+                    cy="445"
+                    rx="630"
+                    ry="330"
+                    transform="rotate(8 800 445)"
                     fill="none"
                     stroke={`url(#${orbitGrad1})`}
                     strokeWidth="0.8"
@@ -1056,7 +1027,7 @@ export const TechEcosystem: React.FC = () => {
                   {/* Luminous Metallic Rose-Gold Orbital Beads */}
                   {ORBITAL_BEADS.map((bead, i) => {
                     const svgX = (bead.x / 100) * 1600;
-                    const svgY = (bead.y / 100) * 900;
+                    const svgY = (bead.y / 100) * 920;
                     return (
                       <g key={`bead-${i}`} filter={`url(#${beadGlowId})`}>
                         <circle cx={svgX} cy={svgY} r={bead.size * 0.9} fill="#FF7A8E" opacity="0.35" />
@@ -1072,33 +1043,7 @@ export const TechEcosystem: React.FC = () => {
                   })}
                 </svg>
 
-                {/* 2. CENTRAL FOCAL POINT: LUMINOUS ORBITAL NEXUS */}
-                <div
-                  className="absolute pointer-events-none z-10 transition-transform duration-700 ease-out"
-                  style={{
-                    left: '50%',
-                    top: '51.1%',
-                    transform: `translate(calc(-50% + ${mouseOffset.x * 0.4}px), calc(-50% + ${mouseOffset.y * 0.4}px))`,
-                  }}
-                >
-                  {/* Subtle Radiant Core Glow */}
-                  <div
-                    className="w-[320px] h-[320px] rounded-full pointer-events-none"
-                    style={{
-                      background:
-                        'radial-gradient(circle, rgba(194, 45, 67, 0.28) 0%, rgba(139, 20, 37, 0.08) 50%, transparent 75%)',
-                      filter: 'blur(35px)',
-                    }}
-                  />
-                  {/* Delicate Luminous Nexus Core */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
-                    <div className="w-10 h-10 rounded-full border border-[#E8C8B8]/30 bg-[#1A0409]/60 backdrop-blur-sm flex items-center justify-center shadow-[0_0_20px_rgba(194,45,67,0.35)]">
-                      <div className="w-3 h-3 rounded-full bg-[#E8C8B8] shadow-[0_0_10px_#E8C8B8]" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* 3. FIVE REVOLVING 3D GLASS SPHERES */}
+                {/* 2. FIVE REVOLVING 3D GLASS SPHERES */}
                 {SKILL_CATEGORIES.map((cat, idx) => (
                   <GlassSphere
                     key={cat.id}
@@ -1148,20 +1093,6 @@ export const TechEcosystem: React.FC = () => {
                     strokeDasharray="4 4"
                   />
                 </svg>
-
-                {/* Central Orbital Nexus on Mobile */}
-                <div className="relative w-28 h-28 flex items-center justify-center z-10 pointer-events-none">
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{
-                      background: 'radial-gradient(circle, rgba(194,45,67,0.3) 0%, transparent 70%)',
-                      filter: 'blur(16px)',
-                    }}
-                  />
-                  <div className="w-9 h-9 rounded-full border border-[#E8C8B8]/30 bg-[#1A0409]/70 flex items-center justify-center shadow-[0_0_18px_rgba(194,45,67,0.4)]">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#E8C8B8] shadow-[0_0_8px_#E8C8B8]" />
-                  </div>
-                </div>
 
                 {/* 5 Revolving Skill Bubbles on Mobile Orbit */}
                 {SKILL_CATEGORIES.map((cat, idx) => {
@@ -1325,7 +1256,7 @@ const MobileOrbitBubble: React.FC<MobileOrbitBubbleProps> = ({
     }
 
     let animId: number;
-    let startTime = performance.now();
+    const startTime = performance.now();
     const period = 38000; // 38s full mobile revolution
 
     const tick = (now: number) => {

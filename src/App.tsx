@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CustomCursor } from './components/CustomCursor';
 
 gsap.registerPlugin(ScrollTrigger);
-(window as any).ScrollTrigger = ScrollTrigger;
+(window as unknown as { ScrollTrigger: typeof ScrollTrigger }).ScrollTrigger = ScrollTrigger;
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/hero/HeroSection';
 import { IntroSection } from './components/intro/IntroSection';
@@ -20,15 +20,15 @@ import { LoadingScreen } from './components/common/LoadingScreen';
 
 export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero');
-  const [loadingProgress, setLoadingProgress] = useState(0); // 0.0 to 1.0
+  const [loadingProgress, setLoadingProgress] = useState(() =>
+    typeof window !== 'undefined' && window.location.search.includes('debug=loading') ? 0.5 : 0
+  );
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Cinematic Loading & Petal-to-Flower Transition Timeline
   useEffect(() => {
     const isDebugLoading = window.location.search.includes('debug=loading');
     if (isDebugLoading) {
-      setLoadingProgress(0.5);
-      setIsLoaded(false);
       return;
     }
 
@@ -71,7 +71,7 @@ export const App: React.FC = () => {
       wheelMultiplier: 1.0,
     });
 
-    (window as any).lenis = lenis;
+    (window as unknown as { lenis?: Lenis }).lenis = lenis;
 
     lenis.on('scroll', ScrollTrigger.update);
 
@@ -84,7 +84,7 @@ export const App: React.FC = () => {
 
     return () => {
       gsap.ticker.remove(updateLenis);
-      delete (window as any).lenis;
+      delete (window as unknown as { lenis?: Lenis }).lenis;
       lenis.destroy();
     };
   }, []);

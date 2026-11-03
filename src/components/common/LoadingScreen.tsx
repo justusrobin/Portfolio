@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 interface LoadingScreenProps {
   loadingProgress: number; // 0.0 to 1.0
@@ -22,14 +22,11 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
   loadingProgress,
   isLoaded,
 }) => {
-  const [isReducedMotion, setIsReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (motionQuery.matches) {
-      setIsReducedMotion(true);
-    }
-  }, []);
+  const [isReducedMotion] = useState(() =>
+    typeof window !== 'undefined'
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false
+  );
 
   const p = Math.min(1.0, Math.max(0.0, loadingProgress));
 

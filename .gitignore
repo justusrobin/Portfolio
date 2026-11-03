@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+
+# Test artifacts and screenshots
+scripts/*.png
+public/assets/test_*
+

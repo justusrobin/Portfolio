@@ -100,7 +100,7 @@ export const ScrollableFlowers: React.FC<ScrollableFlowersProps> = ({
 
   useEffect(() => {
     let animId: number;
-    let startTime = performance.now();
+    const startTime = performance.now();
 
     const handleMouseMove = (e: MouseEvent) => {
       // Subtle mouse parallax offset (-8px to +8px)
@@ -126,16 +126,16 @@ export const ScrollableFlowers: React.FC<ScrollableFlowersProps> = ({
         let fY = -8;
         let fScale = 1.05;
         let fRotate = 205;
-        let fOpacity = 0;
+        let fOpacity: number;
 
         let pX = 0;
         let pY = 18;
         let pScale = 1.0;
         let pRotate = -22;
-        let pOpacity = 0;
+        let pOpacity: number;
 
-        let sOpacity = 0;
-        let bloomP = 0;
+        let sOpacity: number;
+        let bloomP: number;
 
         // PHASE 1: PETAL ACTIVATION (0.00 <= p <= 0.14) [0.0s - 0.45s]
         if (p <= 0.14) {

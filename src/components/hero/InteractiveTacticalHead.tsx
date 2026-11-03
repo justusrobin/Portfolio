@@ -11,15 +11,13 @@ const HeadAndEyesMesh: React.FC<HeadMeshProps> = ({ imageSrc }) => {
   const headGroupRef = useRef<THREE.Group>(null);
   const leftEyeRef = useRef<THREE.Mesh>(null);
   const rightEyeRef = useRef<THREE.Mesh>(null);
-  const texture = useRef<THREE.Texture | null>(null);
-  const [loaded, setLoaded] = useState(false);
+  const [texture, setTexture] = useState<THREE.Texture | null>(null);
 
   useEffect(() => {
     const loader = new THREE.TextureLoader();
     loader.load(imageSrc, (tex) => {
       tex.colorSpace = THREE.SRGBColorSpace;
-      texture.current = tex;
-      setLoaded(true);
+      setTexture(tex);
     });
   }, [imageSrc]);
 
@@ -54,7 +52,7 @@ const HeadAndEyesMesh: React.FC<HeadMeshProps> = ({ imageSrc }) => {
     }
   });
 
-  if (!loaded || !texture.current) return null;
+  if (!texture) return null;
 
   return (
     <group>
@@ -64,7 +62,7 @@ const HeadAndEyesMesh: React.FC<HeadMeshProps> = ({ imageSrc }) => {
           <mesh position={[0, 0, 0]}>
             <planeGeometry args={[3.4, 4.4]} />
             <meshBasicMaterial
-              map={texture.current}
+              map={texture}
               transparent={true}
               side={THREE.DoubleSide}
             />
