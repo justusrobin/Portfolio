@@ -344,7 +344,7 @@ export const ScrollableFlowers: React.FC<ScrollableFlowersProps> = ({
           }}
         >
           <div className="relative flex items-center justify-center drop-shadow-[0_10px_30px_rgba(0,0,0,0.85)]">
-            
+
             {/* Main Central Petal */}
             <div
               style={{
