@@ -1,20 +1,11 @@
 /**
- * TechEcosystem — "The Crimson Bloom" True Revolving Skills Orbit & Scroll-Controlled Rose Bloom
+ * TechEcosystem — "The Crimson Bloom" True Revolving Skills Orbit
  *
  * Cinematic Features:
- *  - Scroll-Controlled Realistic Rose Bloom (Reversible Scrub):
- *    • Initial State: Closed crimson rosebud (Stage 1) at exact center with tight spiral heart and green sepals.
- *    • Stage 1 (0–25% Awakening): Rosebud expands, outer petals begin loosening and separating.
- *    • Stage 2 (25–60% Unfolding): Outer guard petals unfold outward with gold gilded rims, revealing inner whorls.
- *    • Stage 3 (60–100% Full Bloom): Inner ruffled heart opens completely into the luxurious centerpiece English rose.
- *    • Bidirectional Scrub: Directly scrubbed via GSAP ScrollTrigger. Scroll down opens, scroll up closes, pause holds state.
- *    • Atmospheric Bloom Details: 3 delicate shedding crimson petals drift outward from the flower as it opens;
- *      ambient crimson aura glow expands and intensifies smoothly.
- *    • Preloaded Assets: All 5 bloom stages preloaded with instant zero-latency DOM updates.
  *  - Genuine 5-Bubble Revolving Orbit:
- *    • All five glass bubbles physically travel continuously along elliptical orbital paths around the blooming rose.
- *    • Elliptical orbits with distinct semi-major & semi-minor axes (a: 465-535px, b: 260-285px).
- *    • Guaranteed mathematical clearance (> 268px inter-bubble, >= 245px from center) prevents text overlap.
+ *    • All five glass bubbles physically travel continuously along elliptical orbital paths around the central space.
+ *    • Elliptical orbits with distinct semi-major & semi-minor axes (a: 450-505px, b: 230-245px).
+ *    • Guaranteed mathematical clearance (> 260px inter-bubble, >= 230px from center) prevents overlap.
  *  - Strictly Upright Content:
  *    • Translated to (x, y) with 0° rotation — category icons, titles, and tech names always horizontally readable.
  *  - Realistic 3D Depth Mechanics:
@@ -25,8 +16,11 @@
  *    • Hovered bubble scales up, illuminates with champagne/crimson specular rim, and enhances text contrast.
  *    • Moving pointer away resumes seamlessly without jumps or teleporting.
  *    • Clicking any technology opens the comprehensive DetailPanel modal.
+ *  - Clean Composition & Zero Clutter:
+ *    • Pristine central space reserved for orbital balance without unwanted orbs or overlays.
+ *    • Generous vertical breathing room eliminating clipping into adjacent sections.
  *  - Mobile Experience:
- *    • Scaled mobile orbit revolving around the rose with tap-to-focus and interactive showcase card.
+ *    • Scaled mobile orbit with tap-to-focus and interactive showcase card.
  *    • Respects prefers-reduced-motion with accessible, stable composition.
  */
 
@@ -1102,7 +1096,7 @@ export const TechEcosystem: React.FC = () => {
           )}
 
           {/* ── BOTTOM: Supporting Navigation, Counter & Explore Bar ── */}
-          <div className="max-w-7xl w-full mx-auto px-6 lg:px-12 relative z-30 flex-shrink-0 flex items-center justify-between">
+          <div className="max-w-7xl w-full mx-auto px-6 lg:px-12 relative z-30 flex-shrink-0 flex items-center justify-between mt-12 mb-4">
             {/* Bottom-left: Explore My Skills pill */}
             <button
               onClick={() => {
