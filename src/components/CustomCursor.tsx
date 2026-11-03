@@ -70,27 +70,27 @@ export const CustomCursor: React.FC = () => {
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden">
       {/* Primary sharp center dot */}
       <div
-        className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-[#F4E2D8] shadow-[0_0_10px_rgba(244,226,216,0.8)] transition-transform duration-75 ease-out -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#F4E2D8] shadow-[0_0_8px_rgba(244,226,216,0.8)] transition-transform duration-75 ease-out -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         style={{
           transform: `translate3d(${position.x}px, ${position.y}px, 0) scale(${isMouseDown ? 0.6 : 1})`,
         }}
       />
 
-      {/* Outer subtle ring / badge */}
+      {/* Outer subtle follower ring */}
       <div
-        className={`fixed top-0 left-0 flex items-center justify-center rounded-full border border-[#F4E2D8]/40 backdrop-blur-[2px] transition-all duration-300 ease-out -translate-x-1/2 -translate-y-1/2 ${
+        className={`fixed top-0 left-0 flex items-center justify-center rounded-full border pointer-events-none transition-all duration-200 ease-out -translate-x-1/2 -translate-y-1/2 ${
           isHovered
-            ? 'w-16 h-16 bg-[#F4E2D8] text-[#140306] border-transparent shadow-[0_0_25px_rgba(244,226,216,0.3)] scale-110'
-            : 'w-10 h-10 bg-transparent'
+            ? 'w-10 h-10 border-[#E8C8B8]/70 bg-transparent shadow-[0_0_15px_rgba(194,45,67,0.25)]'
+            : 'w-8 h-8 border-[#F4E2D8]/30 bg-transparent'
         }`}
         style={{
           transform: `translate3d(${trailingPos.x}px, ${trailingPos.y}px, 0) scale(${
-            isHovered ? 1.25 : isMouseDown ? 0.85 : 1
+            isMouseDown ? 0.85 : 1
           })`,
         }}
       >
         {isHovered && cursorText && (
-          <span className="font-mono-tech text-[9px] font-bold tracking-widest uppercase text-center px-1">
+          <span className="font-mono-tech text-[9px] font-bold tracking-widest uppercase text-center px-1 text-[#F4E2D8]">
             {cursorText}
           </span>
         )}
