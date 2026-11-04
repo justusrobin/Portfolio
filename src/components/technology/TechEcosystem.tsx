@@ -38,9 +38,6 @@ import {
   Database,
   Brain,
   Wrench,
-  ChevronLeft,
-  ChevronRight,
-  ArrowUp,
 } from 'lucide-react';
 
 // ─────────────────────────────────────────────
@@ -809,14 +806,6 @@ export const TechEcosystem: React.FC = () => {
     setActiveTech(null);
   }, []);
 
-  const handlePrevCategory = () => {
-    setActiveMobileIndex((prev) => (prev === 0 ? SKILL_CATEGORIES.length - 1 : prev - 1));
-  };
-
-  const handleNextCategory = () => {
-    setActiveMobileIndex((prev) => (prev === SKILL_CATEGORIES.length - 1 ? 0 : prev + 1));
-  };
-
   const currentCategory = SKILL_CATEGORIES[activeMobileIndex];
 
   return (
@@ -828,7 +817,7 @@ export const TechEcosystem: React.FC = () => {
       <section
         ref={sectionRef}
         id="skills"
-        className="w-full relative min-h-screen bg-[#0E0205] text-[#F4E2D8] select-none pt-20 sm:pt-24 lg:pt-28 pb-44 sm:pb-56 lg:pb-64"
+        className="w-full relative min-h-screen bg-[#0E0205] text-[#F4E2D8] select-none pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16 lg:pb-20"
         aria-label="Skills — Technologies I Work With"
       >
         {/* Viewport Stage */}
@@ -1095,45 +1084,6 @@ export const TechEcosystem: React.FC = () => {
             </div>
           )}
 
-          {/* ── BOTTOM: Supporting Navigation, Counter & Explore Bar ── */}
-          <div className="max-w-7xl w-full mx-auto px-6 lg:px-12 relative z-30 flex-shrink-0 flex items-center justify-between mt-12 mb-4">
-            {/* Bottom-left: Explore My Skills pill */}
-            <button
-              onClick={() => {
-                const el = document.getElementById('work');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="group flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E8C8B8]/20 bg-[#140306]/80 backdrop-blur-md text-[#C4A89C] hover:text-[#F4E2D8] hover:border-[#E8C8B8]/50 transition-all cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#E8C8B8]"
-            >
-              <ArrowUp size={11} className="transition-transform duration-300 group-hover:-translate-y-0.5" />
-              <span className="font-mono-tech text-[10px] tracking-[0.24em] uppercase">
-                EXPLORE MY SKILLS
-              </span>
-            </button>
-
-            {/* Bottom-right: 03 / 05 Category Counter & Arrows */}
-            <div className="flex items-center gap-3">
-              <span className="font-mono-tech text-[11px] tracking-[0.2em] text-[#C4A89C]">
-                {String(activeMobileIndex + 1).padStart(2, '0')} / {String(SKILL_CATEGORIES.length).padStart(2, '0')}
-              </span>
-              <div className="flex items-center gap-1.5">
-                <button
-                  onClick={handlePrevCategory}
-                  aria-label="Previous skill category"
-                  className="w-7 h-7 rounded-full border border-[#E8C8B8]/20 flex items-center justify-center text-[#C4A89C] hover:text-[#F4E2D8] hover:border-[#E8C8B8]/50 hover:bg-[#C22D43]/20 transition-all cursor-pointer focus:outline-none"
-                >
-                  <ChevronLeft size={13} />
-                </button>
-                <button
-                  onClick={handleNextCategory}
-                  aria-label="Next skill category"
-                  className="w-7 h-7 rounded-full border border-[#E8C8B8]/20 flex items-center justify-center text-[#C4A89C] hover:text-[#F4E2D8] hover:border-[#E8C8B8]/50 hover:bg-[#C22D43]/20 transition-all cursor-pointer focus:outline-none"
-                >
-                  <ChevronRight size={13} />
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* ── Screen-Reader Semantic Fallback for A11y ── */}
