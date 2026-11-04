@@ -61,7 +61,7 @@ export const PERSONAL_INFO = {
   title: "FULL-STACK DEVELOPER",
   phone: "+91 94866 33017",
   email: "justusrobin2007@gmail.com",
-  github: "https://github.com",
+  github: "https://github.com/justusrobin",
   linkedin: "https://linkedin.com",
   location: "Coimbatore, India",
   cgpa: "8.14",
@@ -108,68 +108,122 @@ export const PROJECTS: Project[] = [
     id: "raju-food-court",
     number: "01",
     title: "RAJU MADRAS CAFE",
-    category: "Full-Stack Restaurant Web Application",
-    subtitle: "Digital Restaurant Platform",
-    description: "Developed a full-stack restaurant web application delivering a smooth, intuitive browsing experience for customers. Built a dedicated admin panel enabling real-time menu management (adding, updating, deleting items), implemented dynamic search and filter functionality, and integrated frontend with MongoDB backend for structured data handling.",
-    role: "Full-Stack Developer",
+    category: "Full-Stack Restaurant Experience",
+    subtitle: "Ultra-Premium Pure-Veg Digital Platform",
+    description: "Complete, production-ready full-stack digital experience for Raju Madras Cafe, a premium pure vegetarian South Indian brand located in Gujarat. Features modern motion design, smooth storytelling interactions, dynamic menu filters, and a clean database-backed takeaway ordering flow.",
+    role: "Full-Stack Lead Developer",
     technologies: [
-      "React.js",
-      "Node.js",
-      "Express.js",
+      "Next.js 15",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
       "MongoDB",
-      "JavaScript",
-      "HTML5 / CSS3",
-      "Tailwind CSS"
+      "Node.js"
     ],
     year: "2026",
     status: "LIVE & DEPLOYED",
-    liveUrl: "https://raju-madras-cafe.vercel.app",
-    githubUrl: "https://github.com/justus-robin/raju-madras-cafe",
-    image: "/assets/raju_food_court.jpg",
+    liveUrl: "https://raju-food-court.vercel.app",
+    githubUrl: "https://github.com/justusrobin/Raju-Food-Court",
+    image: "/assets/raju_food_court_live.jpg",
     exhibitionType: "browser",
     highlights: [
-      "Developed a full-stack restaurant web application delivering a smooth, intuitive browsing experience for customers.",
-      "Built a dedicated admin panel enabling real-time menu management, including adding, updating, and deleting menu items.",
-      "Implemented dynamic search and filter functionality, allowing users to quickly locate menu items by category and keyword.",
-      "Designed a fully responsive, user-friendly interface optimized for both desktop and mobile viewing.",
-      "Integrated the frontend with a backend database, enabling efficient, structured data handling for menu content."
+      "Production-ready restaurant platform with seamless takeaway ordering and cart workflows",
+      "Intuitive admin dashboard for live menu catalog management, pricing, and item status",
+      "Dynamic search, multi-category filtering, and silky responsive motion interactions",
+      "Ultra-responsive, mobile-first ordering interface optimized for on-the-go patrons"
     ]
   },
   {
     id: "ai-thermal-controller",
     number: "02",
     title: "AI ADAPTIVE THERMAL CONTROLLER",
-    category: "Hardware & Telemetry Engine",
-    subtitle: "Predictive Thermal Management System",
-    description: "Windows-native performance and thermal optimization engine. Monitors CPU/GPU temperatures and active game processes, predicts thermal spikes 10 seconds ahead using Scikit-Learn ML models, and dynamically adjusts Windows power plans to prevent thermal throttling.",
+    category: "Predictive ML & Hardware Telemetry",
+    subtitle: "Intelligent Thermal Regulation Engine",
+    description: "Windows-native performance and thermal optimization engine. Continuously samples CPU/GPU thermals and active game processes via WMI, forecasts thermal spikes 10 seconds ahead using Scikit-Learn Random Forest regression, and dynamically orchestrates Windows power plans to prevent thermal throttling.",
     role: "Systems & AI Developer",
     technologies: [
       "Python 3.11",
-      "WMI / psutil",
       "Scikit-Learn",
+      "WMI System APIs",
+      "psutil",
       "Streamlit",
-      "OpenHardwareMonitor API",
-      "Windows Power API"
+      "Plotly"
     ],
     year: "2026",
-    status: "COMPLETE",
-    githubUrl: "https://github.com/justus-robin/thermal-controller",
+    status: "SHIPPED & TESTED",
+    githubUrl: "https://github.com/justusrobin/Thermo-Telemetry-AI",
     image: "/assets/thermal_controller.jpg",
     exhibitionType: "telemetry",
     highlights: [
       "Real-time hardware telemetry sampling (CPU temp, load, RAM, gaming processes)",
-      "Machine learning predictor forecasting heat 10 seconds in advance",
-      "Automated Windows power plan and CPU state adjustments under heavy load",
-      "Interactive Streamlit analytical dashboard for live model telemetry visualization"
+      "Random Forest ML predictor forecasting core temperature spikes 10 seconds in advance",
+      "Automated Windows power plan and CPU frequency regulation under heavy gaming workloads",
+      "Interactive analytical dashboard for live model telemetry visualization and thermal curves"
+    ]
+  },
+  {
+    id: "moxie-infratech",
+    number: "03",
+    title: "MOXIE INFRATECH",
+    category: "Enterprise Infrastructure & EPC",
+    subtitle: "Turnkey 11kV–765kV EPC Engineering Portal",
+    description: "Official turnkey EPC web platform designed for Moxie Infratech Pvt Ltd, showcasing specialized capabilities across high-voltage electrical substations (11kV to 765kV), solar pooling bays, hyperscale data centre infrastructure, industrial electrification, and statutory CEIG approvals.",
+    role: "Frontend & Architecture Engineer",
+    technologies: [
+      "Next.js 15",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vercel",
+      "Framer Motion"
+    ],
+    year: "2026",
+    status: "LIVE & DEPLOYED",
+    liveUrl: "https://moxie-brown.vercel.app",
+    githubUrl: "https://github.com/justusrobin/Moxie",
+    image: "/assets/moxie_infratech.jpg",
+    exhibitionType: "browser",
+    highlights: [
+      "Engineered turnkey EPC showcase platform for 11kV-765kV substation and solar power projects",
+      "High-performance responsive UI built with Next.js, TypeScript, and modern styling",
+      "Showcases statutory CEIG approvals, hyperscale data centres, and industrial electrification solutions",
+      "Interactive project showcase with filtering by voltage tiers, civil scope, and statutory compliance"
+    ]
+  },
+  {
+    id: "offline-rag-chatbot",
+    number: "04",
+    title: "OFFLINE RAG CONVERSATIONAL BOT",
+    category: "Local AI & Private Intelligence",
+    subtitle: "Zero-Leakage Local Knowledge Engine",
+    description: "Local Retrieval-Augmented Generation (RAG) conversational bot designed for secure, private document question-answering with zero data leakage. Operates completely offline using quantized local LLMs, ChromaDB vector indexing, and LangChain orchestration without cloud API dependencies.",
+    role: "AI & RAG Engineer",
+    technologies: [
+      "Python 3.11",
+      "LangChain",
+      "ChromaDB",
+      "Ollama / Local LLMs",
+      "HuggingFace",
+      "Streamlit"
+    ],
+    year: "2026",
+    status: "OPEN SOURCE",
+    githubUrl: "https://github.com/justusrobin/Offline-Rag-Chat-Bot",
+    image: "/assets/offline_rag_bot.jpg",
+    exhibitionType: "telemetry",
+    highlights: [
+      "100% offline, local-first RAG pipeline ensuring absolute data privacy and zero cloud telemetry",
+      "Vector semantic search and chunking engine using ChromaDB and local embedding models",
+      "Conversational memory and context injection powered by LangChain and quantized local LLMs",
+      "Intuitive chat interface with source citation and confidence metric inspection"
     ]
   },
   {
     id: "ark-kitchen",
-    number: "03",
+    number: "05",
     title: "ARK KITCHEN",
-    category: "Architecture & System Engineering",
-    subtitle: "Full-Stack Microservice Ecosystem",
-    description: "High-throughput restaurant management microservices system built to decouple ordering logic, kitchen queue management, state synchronization, and analytical reporting.",
+    category: "Microservices & Distributed Food-Tech",
+    subtitle: "High-Throughput Kitchen Dispatcher",
+    description: "High-throughput restaurant management microservices system built to decouple ordering logic, kitchen queue management, real-time ticket dispatching, state synchronization, and analytical reporting across FastAPI microservices and PostgreSQL.",
     role: "Full-Stack System Architect",
     technologies: [
       "React.js",
@@ -177,22 +231,49 @@ export const PROJECTS: Project[] = [
       "PostgreSQL",
       "Docker",
       "TypeScript",
-      "Tailwind CSS"
+      "WebSockets"
     ],
     year: "2025",
-    status: "ARCHITECTED & SHIPPED",
-    image: "/assets/raju_food_court.jpg",
+    status: "SYSTEM ARCHITECTED",
+    githubUrl: "https://github.com/justusrobin2007/ark-kitchen",
+    image: "/assets/ark_kitchen_ops.jpg",
     exhibitionType: "architecture",
     highlights: [
-      "Decoupled RESTful API backend built with Python FastAPI",
-      "Asynchronous WebSocket kitchen display queue dispatcher",
-      "Isolated Docker container orchestration for database and server"
+      "Decoupled RESTful API backend built with Python FastAPI and PostgreSQL relational schema",
+      "Asynchronous WebSocket kitchen display queue dispatcher with sub-10ms ticket updates",
+      "Isolated Docker container orchestration for database, message queue, and server services"
     ],
     architectureNodes: [
-      { label: "FRONTEND UI", sub: "React.js / JavaScript / Tailwind" },
+      { label: "FRONTEND UI", sub: "React.js / TypeScript / Tailwind" },
       { label: "FASTAPI ROUTER", sub: "Async API Dispatcher & Auth" },
       { label: "QUEUE ENGINE", sub: "WebSocket Real-Time Orders" },
-      { label: "POSTGRES DB", sub: "Prisma Schema & Relational Storage" }
+      { label: "POSTGRES DB", sub: "Relational Schema & Event Log" }
+    ]
+  },
+  {
+    id: "recipe-fried-rice",
+    number: "06",
+    title: "AUTHENTIC RECIPE COMPANION",
+    category: "Interactive Culinary Web App",
+    subtitle: "Precision Ingredient Metric Scaling",
+    description: "Interactive cooking companion and culinary measurement application featuring structured culinary guides, portion calculators, and dynamic step-by-step guides for signature dishes including authentic fried rice.",
+    role: "Frontend Developer",
+    technologies: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "UI/UX",
+      "GitHub Pages"
+    ],
+    year: "2025",
+    status: "OPEN SOURCE",
+    githubUrl: "https://github.com/justusrobin/Recipe-Fried-Rice",
+    image: "/assets/recipe_companion.jpg",
+    exhibitionType: "browser",
+    highlights: [
+      "Dynamic ingredient portion calculator with real-time metric scaling based on serving count",
+      "Step-by-step interactive cooking guides with visual progress markers",
+      "Lightweight, responsive UI optimized for desktop and mobile kitchens"
     ]
   }
 ];
