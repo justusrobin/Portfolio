@@ -21,8 +21,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, activeSection, isLoa
   const navItems = [
     { label: 'HOME', id: 'hero' },
     { label: 'ABOUT', id: 'about' },
-    { label: 'WORK', id: 'work' },
     { label: 'SKILLS', id: 'skills' },
+    { label: 'WORK', id: 'work' },
     { label: 'JOURNEY', id: 'journey' },
     { label: 'CONTACT', id: 'contact' },
   ];
