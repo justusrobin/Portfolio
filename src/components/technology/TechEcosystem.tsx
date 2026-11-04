@@ -850,11 +850,6 @@ export const TechEcosystem: React.FC = () => {
                 </p>
               </div>
 
-              {/* Category Orbit Status */}
-              <div className="flex items-center gap-2 font-mono-tech text-[10px] tracking-[0.22em] text-[#C4A89C] uppercase pb-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C22D43] shadow-[0_0_8px_#C22D43] animate-pulse" />
-                <span>05 SKILL CATEGORIES // 3D ORBIT</span>
-              </div>
             </div>
           </div>
 
