@@ -1,58 +1,69 @@
 .carousel {
   position: relative;
   width: min(100%, 1400px);
-  height: min(78vh, 760px);
-  min-height: 560px;
+  height: min(78vh, 700px);
+  min-height: 500px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  border-radius: 34px;
+  border-radius: 28px;
   isolation: isolate;
   user-select: none;
   touch-action: none;
   cursor: grab;
 
-  --pov-perspective: 1200px;
-  --pov-radius: 640px;
-  --pov-card-w: 220px;
-  --pov-card-h: 390px;
+  /* ── 3D INSIDE-POV CYLINDER TUNING (LANDSCAPE CARDS) ── */
+  --pov-perspective: 1350px;
+  --pov-radius: 920px;
+  --pov-card-w: 420px;
+  --pov-card-h: 260px;
   --pov-step: 25.714285deg;
   --pov-rotation: 0deg;
   --pov-tilt-x: 0deg;
   --pov-card-radius: 18px;
 
+  /* ── SEAMLESS DARK BURGUNDY VIGNETTE (NO WHITE BACKGROUND) ── */
   background:
     radial-gradient(
-      ellipse at 50% 45%,
-      rgba(255, 255, 255, 0.72),
-      rgba(255, 255, 255, 0.18) 42%,
-      rgba(255, 255, 255, 0) 72%
-    ),
-    linear-gradient(180deg, #f6f4f1 0%, #ece7e0 100%);
+      ellipse at 50% 50%,
+      rgba(107, 26, 36, 0.16) 0%,
+      rgba(20, 3, 7, 0.75) 55%,
+      rgba(14, 2, 5, 0.95) 100%
+    );
+  border: 1px solid rgba(244, 226, 216, 0.12);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.55),
-    0 30px 80px rgba(59, 42, 28, 0.1);
+    inset 0 0 0 1px rgba(244, 226, 216, 0.05),
+    0 30px 80px rgba(0, 0, 0, 0.85);
 }
 
+/* Subtle atmospheric depth behind cards */
 .carousel::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(circle at 18% 50%, rgba(156, 112, 72, 0.1), transparent 30%),
-    radial-gradient(circle at 82% 48%, rgba(98, 75, 52, 0.1), transparent 32%);
+    radial-gradient(circle at 20% 50%, rgba(194, 45, 67, 0.12), transparent 35%),
+    radial-gradient(circle at 80% 50%, rgba(194, 45, 67, 0.12), transparent 35%);
   pointer-events: none;
 }
 
+/* Soft dark edge vignette to fade peripheral cards seamlessly */
 .carousel::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 5;
   background:
-    linear-gradient(90deg, rgba(236, 231, 224, 0.8), transparent 12% 88%, rgba(236, 231, 224, 0.8)),
-    radial-gradient(ellipse at 50% 50%, transparent 42%, rgba(102, 78, 55, 0.08) 100%);
+    linear-gradient(
+      90deg,
+      rgba(18, 2, 5, 0.95) 0%,
+      rgba(18, 2, 5, 0.6) 5%,
+      transparent 15%,
+      transparent 85%,
+      rgba(18, 2, 5, 0.6) 95%,
+      rgba(18, 2, 5, 0.95) 100%
+    );
   pointer-events: none;
 }
 
@@ -76,6 +87,7 @@
   will-change: transform;
 }
 
+/* ── 3D LANDSCAPE CARDS (NEGATIVE TRANSLATE-Z) ── */
 .card {
   position: absolute;
   left: 50%;
@@ -85,21 +97,28 @@
   margin: 0;
   overflow: hidden;
   border-radius: var(--pov-card-radius);
-  background: rgba(255, 255, 255, 0.2);
+  background: #140306;
+  border: 1px solid rgba(244, 226, 216, 0.22);
   transform-style: preserve-3d;
   transform:
     translate(-50%, -50%)
     rotateY(calc(var(--i) * var(--pov-step)))
     translateZ(calc(var(--pov-radius) * -1));
   box-shadow:
-    0 28px 70px rgba(30, 22, 16, 0.22),
-    0 8px 18px rgba(30, 22, 16, 0.14);
+    0 22px 60px rgba(0, 0, 0, 0.8),
+    0 4px 14px rgba(194, 45, 67, 0.2);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   will-change: transform;
   contain: layout paint style;
+  transition: border-color 0.3s ease;
 }
 
+.card:hover {
+  border-color: rgba(232, 200, 184, 0.65);
+}
+
+/* Glass edge reflection */
 .card::before {
   content: "";
   position: absolute;
@@ -107,12 +126,13 @@
   z-index: 3;
   border-radius: inherit;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.36),
-    inset 0 22px 36px rgba(255, 255, 255, 0.14),
-    inset 0 -38px 58px rgba(0, 0, 0, 0.22);
+    inset 0 0 0 1px rgba(244, 226, 216, 0.25),
+    inset 0 1px 3px rgba(255, 255, 255, 0.3),
+    inset 0 -28px 45px rgba(14, 2, 5, 0.55);
   pointer-events: none;
 }
 
+/* Subtle ambient illumination overlay */
 .card::after {
   content: "";
   position: absolute;
@@ -120,9 +140,9 @@
   z-index: 4;
   border-radius: inherit;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.18), transparent 18% 78%, rgba(0, 0, 0, 0.18)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 35%, rgba(0, 0, 0, 0.14));
-  opacity: 0.72;
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 18% 82%, rgba(0, 0, 0, 0.18)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 40%, rgba(14, 2, 5, 0.3));
+  opacity: 0.6;
   pointer-events: none;
 }
 
@@ -131,9 +151,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: center center;
   border-radius: inherit;
-  background: #ddd;
+  background: #140306;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .dragging {
@@ -145,33 +166,38 @@
 }
 
 .carousel:focus-visible {
-  outline: 2px solid rgba(180, 116, 62, 0.55);
+  outline: 2px solid rgba(232, 200, 184, 0.55);
   outline-offset: 4px;
 }
 
-@media (max-width: 760px) {
+/* ── RESPONSIVE TABLET TUNING ── */
+@media (max-width: 900px) {
   .carousel {
-    width: min(100%, 100%);
-    min-height: 460px;
-    height: 70vh;
-    border-radius: 24px;
+    width: 100%;
+    min-height: 440px;
+    height: 64vh;
+    border-radius: 20px;
 
-    --pov-perspective: 760px;
-    --pov-radius: 420px;
-    --pov-card-w: 156px;
-    --pov-card-h: 278px;
+    --pov-perspective: 1050px;
+    --pov-radius: 720px;
+    --pov-card-w: 320px;
+    --pov-card-h: 200px;
+    --pov-card-radius: 15px;
   }
 }
 
-@media (max-width: 430px) {
+/* ── RESPONSIVE MOBILE TUNING ── */
+@media (max-width: 500px) {
   .carousel {
-    min-height: 420px;
-    height: 66vh;
+    min-height: 380px;
+    height: 56vh;
+    border-radius: 16px;
 
-    --pov-perspective: 700px;
-    --pov-radius: 390px;
-    --pov-card-w: 142px;
-    --pov-card-h: 252px;
+    --pov-perspective: 800px;
+    --pov-radius: 540px;
+    --pov-card-w: 240px;
+    --pov-card-h: 150px;
+    --pov-card-radius: 12px;
   }
 }
 
