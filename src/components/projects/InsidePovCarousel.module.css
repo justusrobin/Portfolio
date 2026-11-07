@@ -9,10 +9,12 @@
   border-radius: 28px;
   isolation: isolate;
   user-select: none;
-  touch-action: none;
+  /* CRITICAL FOR PHONE: pan-y allows smooth vertical page scrolling while capturing horizontal swipes */
+  touch-action: pan-y;
   cursor: grab;
+  -webkit-tap-highlight-color: transparent;
 
-  /* ── 3D INSIDE-POV CYLINDER TUNING (LANDSCAPE CARDS) ── */
+  /* ── 3D INSIDE-POV CYLINDER TUNING (DESKTOP) ── */
   --pov-perspective: 1350px;
   --pov-radius: 920px;
   --pov-card-w: 420px;
@@ -112,6 +114,7 @@
   will-change: transform;
   contain: layout paint style;
   transition: border-color 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -155,6 +158,7 @@
   border-radius: inherit;
   background: #140306;
   image-rendering: -webkit-optimize-contrast;
+  pointer-events: none;
 }
 
 .dragging {
@@ -170,33 +174,66 @@
   outline-offset: 4px;
 }
 
-/* ── RESPONSIVE TABLET TUNING ── */
+/* ── RESPONSIVE TABLET TUNING (max-width: 900px) ── */
 @media (max-width: 900px) {
   .carousel {
     width: 100%;
-    min-height: 440px;
-    height: 64vh;
-    border-radius: 20px;
+    min-height: 400px;
+    height: 56vh;
+    border-radius: 22px;
 
-    --pov-perspective: 1050px;
-    --pov-radius: 720px;
-    --pov-card-w: 320px;
-    --pov-card-h: 200px;
-    --pov-card-radius: 15px;
+    --pov-perspective: 1100px;
+    --pov-radius: 700px;
+    --pov-card-w: 360px;
+    --pov-card-h: 225px;
+    --pov-card-radius: 16px;
   }
 }
 
-/* ── RESPONSIVE MOBILE TUNING ── */
-@media (max-width: 500px) {
+/* ── RESPONSIVE PHONE TUNING (max-width: 640px) ── */
+/* Specifically calibrated for 360px - 430px modern smartphones */
+@media (max-width: 640px) {
   .carousel {
-    min-height: 380px;
-    height: 56vh;
-    border-radius: 16px;
+    width: 100%;
+    min-height: 300px;
+    height: 44vh;
+    max-height: 360px;
+    border-radius: 18px;
+    border-color: rgba(244, 226, 216, 0.1);
 
-    --pov-perspective: 800px;
-    --pov-radius: 540px;
-    --pov-card-w: 240px;
-    --pov-card-h: 150px;
+    /* Calibrated for high readability and bold presence on phones */
+    --pov-perspective: 950px;
+    --pov-radius: 460px;
+    --pov-card-w: 300px;
+    --pov-card-h: 188px;
+    --pov-card-radius: 14px;
+  }
+
+  .carousel::after {
+    /* Narrower edge gradient on mobile so more screen is visible */
+    background:
+      linear-gradient(
+        90deg,
+        rgba(18, 2, 5, 0.88) 0%,
+        transparent 8%,
+        transparent 92%,
+        rgba(18, 2, 5, 0.88) 100%
+      );
+  }
+}
+
+/* ── ULTRA-COMPACT PHONES (max-width: 380px) ── */
+@media (max-width: 380px) {
+  .carousel {
+    min-height: 270px;
+    height: 42vh;
+    max-height: 330px;
+    border-radius: 14px;
+
+    --pov-perspective: 850px;
+    --pov-radius: 400px;
+    --pov-card-w: 260px;
+    --pov-card-h: 162px;
     --pov-card-radius: 12px;
   }
 }
